@@ -73,7 +73,7 @@ var app = new Vue({
       return (talent - this.threshold) <= inputted && inputted <= (talent + this.threshold);
     },
     get_profile: function (cds, units) {
-      var idols = YAML.load('https://bitbucket.org/gomao9/idol-profile/raw/master/profile.yml')
+      var idols = YAML.load('idol-profile/profile.yml')
       return Object.values(idols).map(function(idol) {
         i = new Idol(idol);
         if(i.gender == 'female' && i.name) {
