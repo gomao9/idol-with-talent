@@ -21,18 +21,23 @@
             <v-select v-model="selected" label='name' :options="idols" @input='onSelected'></v-select>
           </div>
           <div class="column">
+            身長
             <input v-model.number="height" class='input' type='number' placeholder='身長'>
           </div>
           <div class="column">
+            バスト
             <input v-model.number="bust" class='input' type='number' placeholder='バスト'>
           </div>
           <div class="column">
+            ウエスト
             <input v-model.number="waist" class='input' type='number' placeholder='ウエスト'>
           </div>
           <div class="column">
+            ヒップ
             <input v-model.number="hip" class='input' type='number' placeholder='ヒップ'>
           </div>
           <div class="column">
+            誤差(cm)
             <input v-model.number="threshold" class='input' type='number' placeholder='誤差'>
           </div>
         </div>
@@ -42,7 +47,7 @@
         <b-table :paginated="true" :per-page="10" :data.sync='filtered_talents'>
           <template scope="props">
             <b-table-column field="name" label="名前">
-              {{ `${props.row.name}` }}
+              <a :href='props.row.link' target="_blank" rel="noreferrer noopener">{{ `${props.row.name}` }}</a>
             </b-table-column>
 
             <b-table-column field="heightFloat" label="身長" sortable>
