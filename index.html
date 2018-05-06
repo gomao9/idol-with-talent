@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>idol profile</title>
+    <title>スタイルの似ているリアル芸能人検索的なアレ</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://unpkg.com/buefy/lib/buefy.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -47,7 +47,7 @@
         <b-table :paginated="true" :per-page="10" :data.sync='filtered_talents'>
           <template scope="props">
             <b-table-column field="name" label="名前">
-              <a :href='props.row.link' target="_blank" rel="noreferrer noopener">{{ `${props.row.name}` }}</a>
+              <a :href='props.row.link' target="_blank" rel="noreferrer noopener">{{ props.row.name }}</a>
             </b-table-column>
 
             <b-table-column field="heightFloat" label="身長" sortable>
@@ -64,6 +64,16 @@
 
             <b-table-column field="hipFloat" label="ヒップ" sortable>
               {{ `${props.row.hip}` }}
+            </b-table-column>
+
+            <b-table-column label="画像検索">
+              <a :href='props.row.image'
+                target="_blank"
+                rel="noreferrer noopener">
+                <span class="icon is-small">
+                  <i class="fa fa-image"></i>
+                </span>
+              </a>
             </b-table-column>
           </template>
         </b-table>

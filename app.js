@@ -34,6 +34,7 @@ class Talent {
     this.waistFloat  = parseFloat(hash.waist.value);
     this.hipFloat    = parseFloat(hash.hip.value);
     this.link        = `https://ja.wikipedia.org/w/index.php?curid=${hash.pid.value}`
+    this.image       = `https://www.google.co.jp/search?hl=ja&tbm=isch&q=${this.name}&safe=high`
   }
 }
 var app = new Vue({
