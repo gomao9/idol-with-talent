@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./app.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue-select@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
     <script src="https://unpkg.com/buefy"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/yamljs/0.3.0/yaml.js"></script>
@@ -17,13 +18,28 @@
       <section>
         <div class="columns">
           <div class="column">
-            <input v-model:value='keyword'class="input" type="text" placeholder="アイドル名で検索">
+            <v-select v-model="selected" label='name' :options="idols" @input='onSelected'></v-select>
+          </div>
+          <div class="column">
+            <input v-model.number="height" class='input' type='number' placeholder='身長'>
+          </div>
+          <div class="column">
+            <input v-model.number="bust" class='input' type='number' placeholder='バスト'>
+          </div>
+          <div class="column">
+            <input v-model.number="waist" class='input' type='number' placeholder='ウエスト'>
+          </div>
+          <div class="column">
+            <input v-model.number="hip" class='input' type='number' placeholder='ヒップ'>
+          </div>
+          <div class="column">
+            <input v-model.number="threshold" class='input' type='number' placeholder='誤差'>
           </div>
         </div>
       </section>
 
       <section>
-        <b-table :paginated="true" :per-page="10" :data='talents'>
+        <b-table :paginated="true" :per-page="10" :data.sync='filtered_talents'>
           <template scope="props">
             <b-table-column field="name" label="名前">
               {{ `${props.row.name}` }}
