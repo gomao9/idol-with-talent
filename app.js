@@ -20,6 +20,16 @@ class Idol {
 
 class Talent {
   constructor(hash) {
+    this.name   = hash.name.value;
+    this.height = hash.height.value;
+    this.bust   = hash.bust.value;
+    this.waist  = hash.waist.value;
+    this.hip    = hash.hip.value;
+
+    this.heightFloat = parseFloat(hash.height.value);
+    this.bustFloat   = parseFloat(hash.bust.value);
+    this.waistFloat  = parseFloat(hash.waist.value);
+    this.hipFloat    = parseFloat(hash.hip.value);
   }
 }
 
@@ -35,7 +45,6 @@ var app = new Vue({
   mounted: function () {
     this.idols = this.get_profile();
     this.get_wikipedia();
-    console.log(this.talents);
   },
   methods: {
     get_profile: function (cds, units) {
@@ -49,7 +58,7 @@ var app = new Vue({
 
       axios.get(request_url).then(response => {
         app.$set(app, 'talents', response.data.results.bindings.map(function(talent) {
-          return talent;
+          return new Talent(talent);
         }));
       });
     }

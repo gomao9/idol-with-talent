@@ -31,23 +31,23 @@
         <b-table :paginated="true" :per-page="10" :data='talents'>
           <template scope="props">
             <b-table-column field="name" label="名前">
-              {{ `${props.row.name.value}` }}
+              {{ `${props.row.name}` }}
             </b-table-column>
 
-            <b-table-column field="height" label="身長">
-              {{ `${props.row.height.value}` }}
+            <b-table-column field="heightFloat" label="身長" sortable>
+              {{ `${props.row.height}` }}
             </b-table-column>
 
-            <b-table-column field="bust" label="バスト">
-              {{ `${props.row.bust.value}` }}
+            <b-table-column field="bustFloat" label="バスト" sortable>
+              {{ `${props.row.bust}` }}
             </b-table-column>
 
-            <b-table-column field="waist" label="ウエスト">
-              {{ `${props.row.waist.value}` }}
+            <b-table-column field="waistFloat" label="ウエスト" sortable>
+              {{ `${props.row.waist}` }}
             </b-table-column>
 
-            <b-table-column field="hip" label="ヒップ">
-              {{ `${props.row.hip.value}` }}
+            <b-table-column field="hipFloat" label="ヒップ" sortable>
+              {{ `${props.row.hip}` }}
             </b-table-column>
           </template>
         </b-table>
